@@ -27,13 +27,13 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
 	<form action="http://derekallard.com/echo.php" method="post" id="myform">
-
+<!--http://derekallard.com/echo.php-->
 		<p class="errors">All fields are required.</p>
 
-		<p><label>Name: <input type="text" size="25" name="name" id="username"></label></p>
-		<p><label>Email: <input type="text" size="25" name="email" id="email"></label></p>
-		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label></p>
-		<p><input type="submit" value="Contact Us"></p>
+		<p><label>Name: <input type="text" size="25" name="name" id="username"><span id="label1"></span></label></p>
+		<p><label>Email: <input type="text" size="25" name="email" id="email"><span id="label2"></span></label></p>
+		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea><span id="label3"></span></label></p>
+		<p><input type="submit" value="Contact Us" id="submit_btn"></p>
 	</form>
 
 	</div>
@@ -43,6 +43,87 @@
 	</div>
 
 </div>
-
+    <script>
+    var u_name=document.getElementById("username");
+    var u_email=document.getElementById("email");
+    var u_message=document.getElementById("my_message");
+    var btn=document.getElementById("submit_btn");
+    var my_form=document.getElementById("myform");
+        var label_1=document.getElementById("label1");
+         var label_2=document.getElementById("label2");
+         var label_3=document.getElementById("label3");
+        
+       var error=0; 
+        
+        my_form.onsubmit=function(eve)
+        {
+           
+            var user_name=u_name.value;
+            var user_email=u_email.value;
+             var user_message=u_message.value;
+            
+            if(user_name=="")
+                {
+                    u_name.style.border="1px solid red";
+                    u_name.style.boxShadow="0 0 5px red";
+                    label_1.innerHTML=" " + "* required";
+                    label_1.style.color="red";
+                    u_name.style.backgroundColor="#FFCAC5";
+                    error++;
+                }
+            else
+            {
+            u_name.style.border="";
+            u_name.style.boxShadow="";
+                label_1.innerHTML="";
+                label_1.style.color="";
+                u_name.style.backgroundColor="";
+            }
+            if(user_email=="")
+                {
+                    u_email.style.border="1px solid red";
+                    u_email.style.boxShadow="0 0 5px red";
+                    label_2.innerHTML=" " + "* required";
+                    label_2.style.color="red";
+                    u_email.style.backgroundColor="#FFCAC5";
+                    error++;
+                }
+            else
+            {
+            u_email.style.border="";
+            u_email.style.boxShadow="";
+                label_2.innerHTML="";
+                label_2.style.color="";
+                u_email.style.backgroundColor="";
+            }
+            if(user_message=="")
+                {
+                    u_message.style.border="1px solid red";
+                    u_message.style.boxShadow="0 0 5px red";
+                    label_3.innerHTML=" " + "* required";
+                    label_3.style.color="red";
+                    u_message.style.backgroundColor="#FFCAC5";
+                    error++;
+                }
+            else
+            {
+            u_message.style.border="";
+            u_message.style.boxShadow="";
+                label_3.innerHTML="";
+                label_3.style.color="";
+                u_message.style.backgroundColor="";
+            }
+            
+            if(error>0)
+                {
+                   eve.preventDefault();  
+                    
+                }
+            
+        }
+    
+    
+    
+    </script>
 </body>
 </html>

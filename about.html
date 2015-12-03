@@ -4,6 +4,14 @@
 	<title>RadicalPhoto About</title>
 	<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
 	<link type="text/css" rel="stylesheet" href="css/radicalphoto.css">
+	<style>
+    #bio
+        {
+            width:200px;
+            height:155px;
+            
+        }
+    </style>
 </head>
 <body>
 
@@ -24,19 +32,21 @@
 	<div id="content">
 	<h2>About RadicalPhoto</h2>
 
-	<p>Today is <span>July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
+	<p>Today is <span id="today_date">July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
 
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
 	<h3>Our Team</h3>
 
 	<p id="bios">
-		<a href="sheila.html">Sheila</a> (President) | 
-		<a href="frank.html">Frank</a> (Vice President) | 
-		<a href="joanne.html">Joanne</a> (Senior Photographer)
+		<a href="sheila.html" id="bios1">Sheila</a> (President) | 
+		<a href="frank.html" id="bios2">Frank</a> (Vice President) | 
+		<a href="joanne.html" id="bios3">Joanne</a> (Senior Photographer)
 	</p> 
 
-	<div id="bio"></div>
+	<div id="bio">
+        
+        </div>
 
 	</div>
 
@@ -45,6 +55,58 @@
 	</div>
 
 </div>
+<!--<script src="js/main.js"></script>-->
+<script>
+var todays_date=document.getElementById("today_date");
+var the_date=new Date();
+var mymonth=new Array();
+mymonth[0]="January";
+mymonth[1]="Februry";
+mymonth[2]="March";
+mymonth[3]="April";
+mymonth[4]="May";
+mymonth[5]="June";
+mymonth[6]="July";
+mymonth[7]="August";
+mymonth[8]="September";
+mymonth[9]="October";
+mymonth[10]="November";
+mymonth[11]="December";
 
+
+var my_month=the_date.getMonth();
+var mydate=the_date.getDate();
+var year=the_date.getFullYear();
+today_date.innerHTML=mymonth[my_month]+ " "+ mydate +","+ year;
+    </script>
+    
+     <script>
+     var link1=document.getElementById("bios1");
+     var link2=document.getElementById("bios2");
+     var link3=document.getElementById("bios3");
+        
+     var img = document.createElement("img");
+         
+        link1.onmouseover=function()
+    {
+        img.src ="images/bio1.jpg";
+    }
+    
+        link2.onmouseover=function()
+        {
+             img.src = "images/bio3.jpg";
+        }
+        
+        link3.onmouseover=function()
+        {
+           img.src = "images/bio2.jpg";  
+        }
+        var src = document.getElementById("bio");
+        src.appendChild(img);
+        src.style.display="inline-block";
+        
+    
+    
+    </script>
 </body>
 </html>
